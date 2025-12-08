@@ -8,23 +8,24 @@ public class Main {
 		// 백준 2231 분해합
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		int m = n / 2;
-		while (n != m) {
-			String changM = Integer.toString(m);
-			int sum = m;
-			String[] arr = changM.split("");
-			for (int i = 0; i < arr.length; i++) {
-				sum += Integer.parseInt(arr[i]);
+		StringBuilder sb = new StringBuilder();
+		for (int i = n / 2; i < n; i++) {
+			int sum = i;
+			int temp = i;
+			while (temp > 0) {
+				sum += temp % 10;
+				temp /= 10;
 			}
-			if (n == sum) {
-				System.out.println(m);
+			if (sum == n) {
+				sb.append(i);
 				break;
 			}
-			m++;
 		}
-		if (n == m) {
-			System.out.println(0);
+		if (sb.isEmpty()) {
+			sb.append(0);
 		}
+		System.out.println(sb);
+		
 	}
 
 }
