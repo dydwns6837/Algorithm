@@ -31,9 +31,11 @@ public class Main {
 		visited = new boolean[n + 1];
 		order = new int [n + 1];
 		bfs(1);
+		StringBuilder sb = new StringBuilder();
 		for (int i = 2; i < order.length; i++) {
-			System.out.println(order[i]);
+			sb.append(order[i]).append("\n");
 		}
+		System.out.println(sb);
 	}
 
 	private static void bfs(int r) {
